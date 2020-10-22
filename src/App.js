@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { makeStyles } from '@material-ui/core/styles';
+import NavSearchBar from './components/navSearchBar';
+import InfoPanel from './components/infoPanel';
+
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: 10
+  },
+  paper: {
+    height: 'auto',
+    width: 350,
+    margin: '0 auto',
+    marginTop: 25,
+    textAlign: 'center',
+    padding: 15
+  },
+  input:{
+    width: '90%',
+  }
+}));
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.root}>
+      <NavSearchBar />
+      <InfoPanel />
     </div>
   );
 }
