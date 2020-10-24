@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import NavSearchBar from './components/navSearchBar';
 import InfoPanel from './components/infoPanel';
+import NavFooter from './components/navFooter';
 
 
 
@@ -18,17 +19,20 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     padding: 15
   },
-  input:{
+  input: {
     width: '90%',
   }
 }));
 
 function App() {
+  const screenConfig = useState(0);
+
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <NavSearchBar />
-      <InfoPanel />
+      <InfoPanel currentScreen={screenConfig[0]} />
+      <NavFooter screenConfig={screenConfig} />
     </div>
   );
 }
